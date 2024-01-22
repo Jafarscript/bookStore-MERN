@@ -9,14 +9,22 @@ import cors from 'cors'
 
 const app = express();
 
-app.use(
-    cors({
-        origin: 'http://localhost:5050',
-        methods: ['GET', 'POST', 'PUT', 'DELETE'],
-        allowedHeaders: ['Content-Type'],
-    })
-)
 app.use(express.json())
+
+
+// Middleware for handling CORS POLICY
+// Option 1 : Aloow All origins with Default of cors(*)
+app.use(cors());
+// Option 2: Allow Custom Origins 
+
+
+// app.use(
+//     cors({
+//         origin: 'http://localhost:5050',
+//         methods: ['GET', 'POST', 'PUT', 'DELETE'],
+//         allowedHeaders: ['Content-Type'],
+//     })
+// )
 
 app.get('/', (req, res) => {
     console.log(req)
